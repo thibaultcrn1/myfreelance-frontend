@@ -42,7 +42,7 @@
    ```
 3. Exécuter le fichier `index.js`
    ```sh
-   pm2 start index.js
+   ng serve
    ```
 <br />
 <br />
