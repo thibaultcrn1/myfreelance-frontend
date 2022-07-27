@@ -6,7 +6,7 @@ import { StaffComponent } from './staff/staff.component';
 import { StockComponent } from './stock/stock.component';
 
 const routes: Routes = [
-  { path: "dashboard/dashboard", component: DashboardComponent },
+  { path: "dashboard", component: DashboardComponent },
   { path: "dashboard/invoice", component: InvoiceComponent },
   { path: "dashboard/staff", component: StaffComponent },
   { path: "dashboard/stock", component: StockComponent },
