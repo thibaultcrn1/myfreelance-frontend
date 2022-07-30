@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { register } from 'src/utils/api';
 import { ToastService } from 'angular-toastify';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,7 @@ import { ToastService } from 'angular-toastify';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private _toastService: ToastService) { }
+  constructor(private _toastService: ToastService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -33,12 +34,9 @@ export class RegisterComponent implements OnInit {
       if(!password) return;
 
       register(firstname, lastname, email, password)
-      .then(() => this._toastService.success("NICE"))
-      .catch((err) => {
-        this._toastService.error("Erreur lors de l'enregistrement, l'adresse mail est déjà utilisé.");
-
-        return console.log(err);
-      });
+      .then(() => this._toastService.success("Compte créer avec succés."))
+      .catch(() => this._toastService.error("Adresse mail déjà utilisé."));
+      return this.router.navigate(['/', 'login']);
     } else {
       return this._toastService.error("Mot de passe incorrecte.");
     }
