@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ToastService, AngularToastifyModule } from 'angular-toastify'; 
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,9 +20,10 @@ import { DashboardModule } from './dashboard/dashboard.module';
     AuthModule,
     SharedModule,
     DashboardModule,
-    RouterModule
+    RouterModule,
+    AngularToastifyModule
   ],
-  providers: [],
+  providers: [ToastService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
