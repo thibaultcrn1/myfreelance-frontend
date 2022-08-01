@@ -3,12 +3,18 @@ SIDEBAR
 */
 
 .sidebar {
-    background-color: #ffffff;
-    height: 100%;
     width: 90px;
+    height: 100%;
     position: fixed;
-    float: left;
+    overflow: scroll;
+    background-color: #ffffff;
+    color: black;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    justify-content: center;
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none;
 }
 
 .sidebar .sidebar-logo {
@@ -21,14 +27,12 @@ SIDEBAR
 .sidebar .sidebar-menu {
     display: flex;
     flex-direction: column;
-    left: 0;
-    top: 0;
-    margin-top: 100px;
+    padding-top: 100px;
 }
 
 .sidebar .sidebar-menu li {
     margin-top: 20px;
-    margin-left: 5px;
+    padding-left: 5px;
 }
 
 .sidebar .sidebar-menu li a {
@@ -44,16 +48,18 @@ HEADER
 */
 
 .header {
-    width: 100%;
+    box-sizing: border-box;
     height: 60px;
     position: fixed;
+    display: block;
     background-color: #ffffff;
+    width: 100%;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .header .header-menu {
     float: right;
-    display: flex;
+    display: inline-flex;
     margin-top: 10px;
     margin-right: 30px;
 }
