@@ -8,7 +8,6 @@ import { ResetPasswordComponent } from './pages/reset-password/reset-password.co
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [
     LoginComponent, 

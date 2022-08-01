@@ -5,8 +5,8 @@ import { ToastService, AngularToastifyModule } from 'angular-toastify';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     AuthModule,
-    SharedModule,
+    DashboardModule,
     RouterModule,
     AngularToastifyModule
   ],
