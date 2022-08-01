@@ -11,8 +11,19 @@ export function register( firstname: string, lastname: string, email: string, pa
     }, { withCredentials: true });
 }
 
-export function login() {
+export function login( email: string, password: string ) {
+    return axios.post(`${API_URL}/auth/login`, {
+        email,
+        password
+    }, { withCredentials: true });
+}
 
+export function userInfo( accessToken: string ) {
+    return axios.get(`${API_URL}/auth/users`, {
+        headers: {
+            Authorization: 'Bearer ' + accessToken,
+        },
+    })
 }
 
 export function logout() {
