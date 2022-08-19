@@ -18,14 +18,26 @@ export function login( email: string, password: string ) {
     }, { withCredentials: true });
 }
 
-export function userInfo( accessToken: string ) {
+export function userInfo(accessToken: string) {
     return axios.get(`${API_URL}/auth/users`, {
         headers: {
-            Authorization: 'Bearer ' + accessToken,
+            authorization: 'Bearer ' + accessToken
         },
-    })
+        withCredentials: true,
+    });
 }
 
-export function logout() {
+export function generateAccessToken(refreshToken: string) {
+    return axios.post(`${API_URL}/auth/refreshToken`, {
+        headers: {
+            authorization: 'Bearer ' + refreshToken 
+        },
+        withCredentials: true,
+    });
+}
 
+export function forgotPassword( email: string ) {
+    return axios.put(`${API_URL}/auth/forgot-password`, {
+        email,
+    }, { withCredentials: true });
 }
