@@ -1,4 +1,58 @@
 <app-sidebar></app-sidebar>
 <div class="content">
-    <p>dashboard work!</p>
+    <div class="block">
+
+        <!-- FIRST LINE -->
+        <div class="columns first-line">
+
+            <div class="column">
+                <div class="box">
+                    <h6 class="subtitle is-6">Date</h6>
+                    <h3 class="title is-3">{{ date }}</h3>
+                </div>
+            </div>
+            <div class="column">
+                <div class="box">
+                    <h6 class="subtitle is-6">Cotisations</h6>
+                    <h3 class="title is-3">0€</h3>
+                </div>
+            </div>
+            <div class="column">
+                <div class="box">
+                    <h6 class="subtitle is-6">Encaissements</h6>
+                    <h3 class="title is-3">0€</h3>
+                </div>
+            </div>
+            <div class="column">
+                <div class="box">
+                    <h6 class="subtitle is-6">Bénéfices</h6>
+                    <h3 class="title is-3">0€</h3>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- SECOND LINE -->
+
+        <div class="columns second-line">
+            <div class="column is-two-thirds">
+                <div class="box">
+
+                </div>
+            </div>
+            <div class="column">
+                <p class="title is-7">Meilleur client</p>
+                <div class="box">
+                    <i class="fa-solid fa-user"></i>
+                    <p class="title is-6">{{ best_client }}</p>
+                </div>
+                <p class="title is-7">Nombres d'articles</p>
+                <div class="box">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <p class="title is-6">{{ articles }} Article(s)</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>

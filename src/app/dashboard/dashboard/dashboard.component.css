@@ -1,0 +1,9 @@
+.first-line {
+    padding: 50px;
+    align-items: center;
+}
+
+.second-line {
+    padding: 0 50px;
+    align-items: center;
+}
