@@ -18,7 +18,7 @@ import { RouterModule } from '@angular/router';
     AuthModule,
     DashboardModule,
     RouterModule,
-    AngularToastifyModule
+    AngularToastifyModule,
   ],
   providers: [ToastService],
   bootstrap: [AppComponent]
