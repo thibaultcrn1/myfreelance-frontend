@@ -7,3 +7,27 @@
     padding: 0 50px;
     align-items: center;
 }
+
+.third-line {
+    align-items: center;
+    padding: 50px;
+    margin-top: -40px;
+}
+
+.chiffre {
+    display: none;
+}
+
+.hero {
+    display: block;
+}
+
+@media screen and (max-width: 1400px) {
+    .plot {
+        display: none;
+    }
+
+    .chiffre {
+        display: flex;
+    }
+}

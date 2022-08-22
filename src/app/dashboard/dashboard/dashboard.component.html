@@ -35,22 +35,42 @@
         <!-- SECOND LINE -->
 
         <div class="columns second-line">
-            <div class="column is-two-thirds">
-                <div class="box">
+            <div class="column is-two-thirds plot">
+                
+                <plotly-plot [data]="data" [layout]="layout" [config]="config"></plotly-plot>
 
-                </div>
             </div>
             <div class="column">
-                <p class="title is-7">Meilleur client</p>
-                <div class="box">
-                    <i class="fa-solid fa-user"></i>
-                    <p class="title is-6">{{ best_client }}</p>
+                <p class="title is-7 chiffre">Chiffre d'affaires</p>
+                <div class="box chiffre">
+                    <p class="title is-6"><i class="fa-regular fa-earth-europe"></i> {{ chiffre }}€ en {{ year }} </p>
                 </div>
-                <p class="title is-7">Nombres d'articles</p>
-                <div class="box">
-                    <i class="fa-solid fa-basket-shopping"></i>
-                    <p class="title is-6">{{ articles }} Article(s)</p>
+                <p class="title is-7">Articles en stock</p>
+                <div class="box hero">
+                    <p class="title is-6"><i class="fa-solid fa-basket-shopping"></i> {{ articles }} Article(s)</p>
                 </div>
+                <p class="title is-7">Nombres de clients</p>
+                <div class="box hero">
+                    <p class="title is-6"><i class="fa-solid fa-user"></i> {{ clients }} Client(s)</p>
+                </div>
+                <p class="title is-7">Nombres de factures</p>
+                <div class="box hero">
+                    <p class="title is-6"><i class="fa-solid fa-file-invoice-dollar"></i> {{ factures }} Facture(s)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- THIRD LINE -->
+        <div class="columns third-line">
+            <div class="column">
+                <p class="title is-7" style="color: #808B96;"><i class="fa-regular fa-credit-card"></i> TVA NON FACTURÉ</p>
+                <progress class="progress is-large is-danger" value="{{ notva }}" max="{{ maxtva }}"></progress>
+                <p class="title is-7" style="color: #808B96; margin-top: -15px;">{{ notva }}€</p>
+            </div>
+            <div class="column">
+                <p class="title is-7" style="color: #808B96;"><i class="fa-regular fa-credit-card"></i> TVA FACTURÉ</p>
+                <progress class="progress is-large is-primary" value="{{ tva }}" max="{{maxtva}}"></progress>
+                <p class="title is-7" style="color: #808B96; margin-top: -15px;">{{ tva }}€</p>
             </div>
         </div>
 
