@@ -14,6 +14,11 @@ import { QuotationComponent } from './quotation/quotation.component';
 import { StaffComponent } from './staff/staff.component';
 import { StockComponent } from './stock/stock.component';
 
+import * as PlotlyJS from 'plotly.js-dist-min';
+import { PlotlyModule } from 'angular-plotly.js';
+
+PlotlyModule.plotlyjs = PlotlyJS;
+
 @NgModule({
   declarations: [
     CalendarComponent,
@@ -30,7 +35,8 @@ import { StockComponent } from './stock/stock.component';
     CommonModule,
     DashboardRoutingModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    PlotlyModule
   ],
   bootstrap: [DashboardComponent]
 })
