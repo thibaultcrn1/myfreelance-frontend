@@ -48,7 +48,6 @@ export class DashboardComponent implements OnInit {
     width: 800,
     height: 330,
     xaxis: {
-      showticklabels: false,
       autotick: false,
       showgrid: false,
       zeroline: false
