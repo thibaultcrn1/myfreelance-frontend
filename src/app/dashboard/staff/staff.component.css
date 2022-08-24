@@ -1,0 +1,31 @@
+.panel {
+    background-color: white;
+}
+
+.columns {
+    margin: 20px;
+}
+
+.client-panel {
+    width: 100%;
+}
+
+.tabs {
+    margin-top: 10px;
+}
+
+.tabs ul li {
+    background-color: white;
+    border-radius: 4px;
+}
+
+.user-info {
+    margin-top: 10px;
+}
+
+.users-menu {
+    margin-left: -1px;
+    margin-top: -2px;
+    overflow: scroll;
+    max-height: 250px;
+}
