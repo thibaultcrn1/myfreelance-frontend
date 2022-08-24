@@ -1,4 +1,224 @@
 <app-sidebar></app-sidebar>
 <div class="content">
-    <p>client work!</p>
+
+    <!-- CREATE MODAL -->
+    <div class="modal" id="create-modal" *ngIf="showModal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Modal title</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <!-- Content ... -->
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-success">Enregister</button>
+                <button class="button">Annuler</button>
+            </footer>
+        </div>
+    </div>
+
+    <!-- EDIT MODAL -->
+    <div class="modal" id="edit-modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Modal title</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <!-- Content ... -->
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-success">Enregistrer</button>
+                <button class="button">Annuler</button>
+            </footer>
+        </div>
+    </div>
+
+    <!-- DELETE MODAL -->
+    <div class="modal" id="delete-modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Modal title</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <!-- Content ... -->
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-success">Enregistrer</button>
+                <button class="button">Annuler</button>
+            </footer>
+        </div>
+    </div>
+
+
+    <!-- MENU -->
+    <div class="tabs is-toggle">
+        <ul>
+            <li class="is-active">
+                <a id="create-modal-button" data-target="create-modal" (click)="selectItem()">
+                    <span class="icon is-small"><i class="fa-solid fa-circle-plus"></i></span>
+                    <span>Nouveau</span>
+                </a>
+            </li>
+            <li>
+                <a id="edit-modal-button" data-target="edit-modal">
+                    <span class="icon is-small"><i class="fa-solid fa-pen-to-square"></i></span>
+                    <span>Modifier</span>
+                </a>
+            </li>
+            <li>
+                <a id="delete-modal-button" data-target="delete-modal">
+                    <span class="icon is-small"><i class="fa-solid fa-delete-left"></i></span>
+                    <span>Supprimer</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="columns">
+        <div class="column client-profile">
+
+            <!-- PROFILE -->
+            <div class="client-profile">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <figure class="image is-48x48">
+                                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Photo de profile">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <p class="title is-4">Thibault Carron</p>
+                                <p class="subtitle is-6">tcarron6@outlook.com</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="box user-info">
+                <div class="field">
+                    <label class="label">Nom</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Doe" disabled>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Prénom</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="John" disabled>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control">
+                        <input class="input" type="mail" placeholder="johndoe@myfreelance.com" disabled>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Date de création</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="31/12/2022" disabled>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">N° de client</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="e6b47b5f-d1ed-489f-a0db-b16a29181c45" disabled>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="column client-panel">
+
+            <!-- CLIENT PANEL -->
+            <div class="client-panel">
+                <article class="panel is-primary">
+                    <p class="panel-heading">
+                        Clients Enregistré(e)s
+                    </p>
+                    <div class="panel-block">
+                        <p class="control has-icons-left">
+                            <input class="input is-success" type="text" placeholder="Rechercher">
+                            <span class="icon is-left">
+                                <i class="fas fa-search" aria-hidden="true"></i>
+                            </span>
+                        </p>
+                    </div>
+                    <ul class="users-menu">
+                        <li>
+                            <a class="panel-block">
+                                <span class="panel-icon">
+                                    <i class="fa-solid fa-user" aria-hidden="true"></i>
+                                </span>
+                                John Doe
+                            </a>
+                        </li>
+                        <li>
+                            <a class="panel-block">
+                                <span class="panel-icon">
+                                    <i class="fa-solid fa-user" aria-hidden="true"></i>
+                                </span>
+                                John Doe
+                            </a>
+                        </li>
+                        <li>
+                            <a class="panel-block">
+                                <span class="panel-icon">
+                                    <i class="fa-solid fa-user" aria-hidden="true"></i>
+                                </span>
+                                John Doe
+                            </a>
+                        </li>
+                        <li>
+                            <a class="panel-block">
+                                <span class="panel-icon">
+                                    <i class="fa-solid fa-user" aria-hidden="true"></i>
+                                </span>
+                                John Doe
+                            </a>
+                        </li>
+                        <li>
+                            <a class="panel-block">
+                                <span class="panel-icon">
+                                    <i class="fa-solid fa-user" aria-hidden="true"></i>
+                                </span>
+                                John Doe
+                            </a>
+                        </li>
+                        <li>
+                            <a class="panel-block">
+                                <span class="panel-icon">
+                                    <i class="fa-solid fa-user" aria-hidden="true"></i>
+                                </span>
+                                John Doe
+                            </a>
+                        </li>
+                        <li>
+                            <a class="panel-block">
+                                <span class="panel-icon">
+                                    <i class="fa-solid fa-user" aria-hidden="true"></i>
+                                </span>
+                                John Doe
+                            </a>
+                        </li>
+                    </ul>
+                </article>
+            </div>
+
+        </div>
+    </div>
+
 </div>
