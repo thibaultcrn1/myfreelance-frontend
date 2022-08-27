@@ -1,4 +1,121 @@
 <app-sidebar></app-sidebar>
 <div class="content">
-    <p>stock work!</p>
+
+  <div class="tabs is-toggle">
+    <ul>
+        <li class="is-active">
+            <a id="create-modal-button" data-target="create-modal">
+                <span class="icon is-small"><i class="fa-solid fa-circle-plus"></i></span>
+                <span>Nouveau</span>
+            </a>
+        </li>
+        <li>
+            <a id="edit-modal-button" data-target="edit-modal">
+                <span class="icon is-small"><i class="fa-solid fa-pen-to-square"></i></span>
+                <span>Modifier</span>
+            </a>
+        </li>
+        <li>
+            <a id="delete-modal-button" data-target="delete-modal">
+                <span class="icon is-small"><i class="fa-solid fa-delete-left"></i></span>
+                <span>Supprimer</span>
+            </a>
+        </li>
+    </ul>
+</div>
+  
+  <!-- CATEGORY -->
+    <article class="panel is-success">
+        <p class="panel-heading">
+            Catégorie(s)
+        </p>
+        <div class="panel-block">
+            <p class="control has-icons-left">
+                <input class="input is-success" type="text" placeholder="Rechercher">
+                <span class="icon is-left">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                </span>
+            </p>
+        </div>
+
+        <table class="table">
+            <thead>
+              <tr>
+                <th>Ordre</th>
+                <th><abbr title="Played">Nom</abbr></th>
+                <th><abbr title="Drawn">Disponible</abbr></th>
+                <th>ID</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1</th>
+                <td><a href="https://en.wikipedia.org/wiki/Leicester_City_F.C." title="Leicester City F.C.">Carte mère</a></td>
+                <td><input type="checkbox"></td>
+                <td>1298283083</td>
+              </tr>
+              <tr>
+                <th>2</th>
+                <td><a href="https://en.wikipedia.org/wiki/Leicester_City_F.C." title="Leicester City F.C.">Carte mère</a></td>
+                <td><input type="checkbox"></td>
+                <td>1298283083</td>
+              </tr>
+              <tr>
+                <th>3</th>
+                <td><a href="https://en.wikipedia.org/wiki/Leicester_City_F.C." title="Leicester City F.C.">Carte mère</a></td>
+                <td><input type="checkbox"></td>
+                <td>1298283083</td>
+              </tr>
+            </tbody>
+          </table>
+        
+    </article>
+
+    <!-- STOCK -->
+    <article class="panel is-link">
+      <p class="panel-heading">
+          Stock(s)
+      </p>
+      <div class="panel-block">
+          <p class="control has-icons-left">
+              <input class="input is-success" type="text" placeholder="Rechercher">
+              <span class="icon is-left">
+                  <i class="fas fa-search" aria-hidden="true"></i>
+              </span>
+          </p>
+      </div>
+
+      <table class="table">
+          <thead>
+            <tr>
+              <th>Ordre</th>
+              <th><abbr title="Played">Nom</abbr></th>
+              <th><abbr title="Drawn">Disponible</abbr></th>
+              <th>ID</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>1</th>
+              <td><a href="https://en.wikipedia.org/wiki/Leicester_City_F.C." title="Leicester City F.C.">Carte mère</a></td>
+              <td><input type="checkbox"></td>
+              <td>1298283083</td>
+            </tr>
+            <tr>
+              <th>2</th>
+              <td><a href="https://en.wikipedia.org/wiki/Leicester_City_F.C." title="Leicester City F.C.">Carte mère</a></td>
+              <td><input type="checkbox"></td>
+              <td>1298283083</td>
+            </tr>
+            <tr>
+              <th>3</th>
+              <td><a href="https://en.wikipedia.org/wiki/Leicester_City_F.C." title="Leicester City F.C.">Carte mère</a></td>
+              <td><input type="checkbox"></td>
+              <td>1298283083</td>
+            </tr>
+          </tbody>
+        </table>
+      
+  </article>
+
 </div>

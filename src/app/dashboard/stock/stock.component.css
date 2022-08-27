@@ -1,0 +1,13 @@
+.panel {
+    background-color: white;
+    margin: 20px;
+}
+
+.tabs {
+    margin-top: 10px;
+}
+
+.tabs ul li {
+    background-color: white;
+    border-radius: 4px;
+}
