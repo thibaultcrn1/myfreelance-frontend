@@ -7,16 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientComponent implements OnInit {
 
-  showModal: boolean = false;
-
   constructor() { }
 
   ngOnInit(): void {
 
-  }
-
-  selectItem() {
-    this.showModal = true;
   }
 
 }

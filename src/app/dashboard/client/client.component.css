@@ -29,3 +29,11 @@
     overflow: scroll;
     max-height: 250px;
 }
+
+.modal {
+    z-index: 1000;
+}
+
+.modal .modal-card {
+    margin-top: 100px;
+}
