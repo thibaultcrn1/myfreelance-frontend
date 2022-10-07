@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import * as moment from 'moment';
+
+import { getStockList, usersInfo } from '../../../utils/api';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,13 +21,19 @@ export class DashboardComponent implements OnInit {
   chiffre!: string;
   year!: string;
 
-  constructor() { }
+  constructor(private cookie: CookieService) { }
 
   ngOnInit(): void {
 
+    const accessToken = this.cookie.get('myFreelance_accessToken');
+
     this.date = moment().format("DD/MM/YYYY");
-    this.clients = "0";
-    this.articles = "0";
+    usersInfo(accessToken).then((result) => {
+      this.clients = result.data.length
+    })
+    getStockList().then((result) => {
+      this.articles = result.data.length;
+    })
     this.factures = "0";
     this.notva = "100";
     this.tva = "1500";

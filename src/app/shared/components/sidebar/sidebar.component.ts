@@ -16,24 +16,17 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
 
-    //const connect = this.cookie.get('connect.sid');
-    //if(connect === null) return this.router.navigate(['/', 'login']);
-    
-    //const accessToken = this.cookie.get('MyFreelanceAccess');
-    //const refreshToken = this.cookie.get('MyFreelanceRefresh');
+    const accessToken = this.cookie.get('myFreelance_accessToken');
+    const refreshToken = this.cookie.get('myFreelance_refreshToken');
 
-    //if(refreshToken === null) return this.router.navigate(['/', 'login']);
-    //if(accessToken === null) generateAccessToken(refreshToken);
+    if(refreshToken == null) this.router.navigate(['/', 'login']);
 
-    //userInfo(accessToken)
-    //.then((result) => {
-    //  return this.username = result.data[0].firstname
-    //})
-    //.catch((err) => {
-    //  return this.router.navigate(['/', 'login']);
-    //});
-
-    this.username = "Thibault";
+    userInfo(accessToken).then((result) => {
+      return this.username = result.data.firstname || 'not defined';
+    })
+    .catch((err) => {
+      return this.router.navigate(['/', 'login']);
+    })
 
   }
 

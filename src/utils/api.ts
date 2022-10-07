@@ -8,7 +8,9 @@ export function register( firstname: string, lastname: string, email: string, pa
         lastname,
         email,
         password
-    }, { withCredentials: true });
+    }, { 
+        withCredentials: true 
+    });
 }
 
 export function login( email: string, password: string ) {
@@ -19,6 +21,15 @@ export function login( email: string, password: string ) {
 }
 
 export function userInfo(accessToken: string) {
+    return axios.get(`${API_URL}/auth/user`, {
+        headers: {
+            authorization: 'Bearer ' + accessToken
+        },
+        withCredentials: true,
+    });
+}
+
+export function usersInfo(accessToken: string) {
     return axios.get(`${API_URL}/auth/users`, {
         headers: {
             authorization: 'Bearer ' + accessToken
@@ -40,4 +51,16 @@ export function forgotPassword( email: string ) {
     return axios.put(`${API_URL}/auth/forgot-password`, {
         email,
     }, { withCredentials: true });
+}
+
+export function getCategoryList() {
+    return axios.get(`${API_URL}/category/get`, {
+        withCredentials: true
+    })
+}
+
+export function getStockList() {
+    return axios.get(`${API_URL}/stock/get`, {
+        withCredentials: true
+    })
 }
