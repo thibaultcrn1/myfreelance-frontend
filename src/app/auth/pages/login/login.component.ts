@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastService } from 'angular-toastify';
-import { login } from 'src/utils/api';
 import { Router } from '@angular/router';
+import { SessionLoginService } from 'src/app/services/session-login/session-login.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private _toastService: ToastService, private router: Router) { }
+  constructor(private _toastService: ToastService, private router: Router, private sessionLogin: SessionLoginService) { }
 
   ngOnInit(): void {
 
@@ -24,12 +24,18 @@ export class LoginComponent implements OnInit {
     if(!email) return this._toastService.warn("Vous n'avez pas mentionné d'adresse email.");
     if(!password) return this._toastService.warn("Vous n'avez pas mentionné de mot de passe.");
 
-    login(email, password)
-    .then(() => {
-      this._toastService.success("Authentification réussis.");
-      return this.router.navigate(['/', "dashboard"]);
-    })
-    .catch(() => this._toastService.error("Mot de passe ou adresse mail incorrecte."));
+    this.sessionLogin.login(email, password).subscribe(result => {
+      console.log(result);
+      console.log(this.sessionLogin.token);
+      this._toastService.success('Authentification réussis.');
+      return this.router.navigate(['/', 'dashboard']);
+    }, err => {
+      console.log(err);
+      return this._toastService.error('Identifiants invalides.');
+    });
+
+
+  
 
   }
 
