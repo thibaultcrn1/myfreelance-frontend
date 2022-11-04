@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { register } from 'src/utils/api';
 import { ToastService } from 'angular-toastify';
 import { Router } from '@angular/router';
+import { SessionLoginService } from 'src/app/services/session-login/session-login.service';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private _toastService: ToastService, private router: Router) { }
+  constructor(private _toastService: ToastService, private router: Router, private sessionLogin: SessionLoginService) { }
 
   ngOnInit(): void {
   }
@@ -30,15 +30,22 @@ export class RegisterComponent implements OnInit {
     if(!password_confirmation) return this._toastService.warn("Vous n'avez pas confirmé votre mot de passe.");
 
     if(first_password === password_confirmation) {
+
       const password = first_password;
       if(!password) return;
 
-      register(firstname, lastname, email, password)
-      .then(() => this._toastService.success("Compte créer avec succés."))
-      .catch(() => this._toastService.error("Adresse mail déjà utilisé."));
-      return this.router.navigate(['/', 'login']);
+      this.sessionLogin.register(firstname, lastname, email, password)
+      .subscribe(result => {
+        this._toastService.success("Compte créer avec succès.");
+        return this.router.navigate(['/', 'login']);
+      }, err => {
+        return this._toastService.error('Adresse mail déjà utilisé.');
+      })
+
     } else {
-      return this._toastService.error("Mot de passe incorrecte.");
+
+      return this._toastService.error("Le mot de passe ne correspond pas.");
+      
     }
 
 
