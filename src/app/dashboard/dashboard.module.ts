@@ -16,6 +16,7 @@ import { StockComponent } from './stock/stock.component';
 
 import * as PlotlyJS from 'plotly.js-dist-min';
 import { PlotlyModule } from 'angular-plotly.js';
+import { HttpClientModule } from '@angular/common/http';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -36,7 +37,7 @@ PlotlyModule.plotlyjs = PlotlyJS;
     DashboardRoutingModule,
     SharedModule,
     RouterModule,
-    PlotlyModule
+    PlotlyModule,
   ],
   bootstrap: [DashboardComponent]
 })
