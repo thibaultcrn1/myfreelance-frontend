@@ -8,6 +8,7 @@ import { ResetPasswordComponent } from './pages/reset-password/reset-password.co
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
     CommonModule,
     AuthRoutingModule,
     RouterModule,
-    FormsModule
+    FormsModule,
   ],
   exports: [
     LoginComponent, 
