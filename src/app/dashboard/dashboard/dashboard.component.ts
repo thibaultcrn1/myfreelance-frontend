@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 import * as moment from 'moment';
+import { GetItemsInformationsService } from 'src/app/services/get-items-informations/get-items-informations.service';
+import { GetUsersInformationsService } from 'src/app/services/get-users-informations/get-user-informations.service';
 
-import { getStockList, usersInfo } from '../../../utils/api';
+import { getStockList } from '../../../utils/api';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,18 +23,24 @@ export class DashboardComponent implements OnInit {
   chiffre!: string;
   year!: string;
 
-  constructor(private cookie: CookieService) { }
+  constructor(private userService: GetUsersInformationsService, private itemsService: GetItemsInformationsService, private router: Router) { }
 
   ngOnInit(): void {
 
-    const accessToken = this.cookie.get('myFreelance_accessToken');
-
     this.date = moment().format("DD/MM/YYYY");
-    usersInfo(accessToken).then((result) => {
-      this.clients = result.data.length
+    this.userService.getUsersInformations()
+    .subscribe(result => {
+      this.clients = result.length.toString();
+    }, err => {
+      console.log(err);
+      return this.router.navigate(['/', 'login']);
     })
-    getStockList().then((result) => {
-      this.articles = result.data.length;
+    this.itemsService.getStockList()
+    .subscribe(result => {
+      this.articles = result.length.toString();
+    }, err => {
+      console.log(err);
+      return this.router.navigate(['/', 'login']);
     })
     this.factures = "0";
     this.notva = "100";
