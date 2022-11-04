@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
-import { userInfo, generateAccessToken } from 'src/utils/api';
 import { Router } from '@angular/router';
+import { GetUsersInformationsService } from 'src/app/services/get-users-informations/get-user-informations.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -12,21 +11,21 @@ export class SidebarComponent implements OnInit {
 
   username!: string;
 
-  constructor(private cookie: CookieService, private router: Router) { }
+  constructor(private router: Router, private userService: GetUsersInformationsService) { }
 
   ngOnInit(): void {
 
-    const accessToken = this.cookie.get('myFreelance_accessToken');
-    const refreshToken = this.cookie.get('myFreelance_refreshToken');
-
-    if(refreshToken == null) this.router.navigate(['/', 'login']);
-
-    userInfo(accessToken).then((result) => {
-      return this.username = result.data.firstname || 'not defined';
-    })
-    .catch((err) => {
+    this.userService.getUserInformations()
+    .subscribe(result => {
+      this.username = result.firstname;
+    }, err => {
+      console.log(err);
       return this.router.navigate(['/', 'login']);
     })
+
+  }
+
+  logoutUser() {
 
   }
 
