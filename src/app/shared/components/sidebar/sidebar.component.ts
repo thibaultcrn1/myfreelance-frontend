@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GetUsersInformationsService } from 'src/app/services/get-users-informations/get-user-informations.service';
+import { SessionLoginService } from 'src/app/services/session-login/session-login.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,7 +12,7 @@ export class SidebarComponent implements OnInit {
 
   username!: string;
 
-  constructor(private router: Router, private userService: GetUsersInformationsService) { }
+  constructor(private router: Router, private userService: GetUsersInformationsService, private sessionLogin: SessionLoginService) { }
 
   ngOnInit(): void {
 
@@ -26,6 +27,13 @@ export class SidebarComponent implements OnInit {
   }
 
   logoutUser() {
+    
+    this.sessionLogin.logout()
+    .subscribe(result => {
+      console.log(result)
+    }, err => {
+      console.log(err);
+    })
 
   }
 

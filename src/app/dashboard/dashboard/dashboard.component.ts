@@ -4,8 +4,6 @@ import * as moment from 'moment';
 import { GetItemsInformationsService } from 'src/app/services/get-items-informations/get-items-informations.service';
 import { GetUsersInformationsService } from 'src/app/services/get-users-informations/get-user-informations.service';
 
-import { getStockList } from '../../../utils/api';
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',

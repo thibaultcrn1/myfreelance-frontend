@@ -25,17 +25,23 @@ export class LoginComponent implements OnInit {
     if(!password) return this._toastService.warn("Vous n'avez pas mentionné de mot de passe.");
 
     this.sessionLogin.login(email, password).subscribe(result => {
-      console.log(result);
-      console.log(this.sessionLogin.token);
-      this._toastService.success('Authentification réussis.');
-      return this.router.navigate(['/', 'dashboard']);
+      
+      if(result == true ) {
+
+        this._toastService.success('Authentification réussis.');
+        return this.router.navigate(['/', 'dashboard'])
+
+      } else {
+
+        console.clear();
+        return this._toastService.error('Identifiants invalides.');
+
+      }
+
     }, err => {
-      console.log(err);
-      return this._toastService.error('Identifiants invalides.');
+      console.clear();
+      return this._toastService.error('Une erreur est survenue.');
     });
-
-
-  
 
   }
 

@@ -17,15 +17,17 @@ export class SessionLoginService {
   LOGOUT_URL = "/auth/logout";
   REGISTER_URL = "/auth/register";
   FORGOT_URL = "/auth/forgot-password";
+  RESET_URL = "/auth/reset-password";
+  VERIFY_TOKEN_URL = "/api/auth/verifyToken";
 
   constructor(private httpClient: HttpClient, private cookie: CookieService, private router: Router) { }
 
-  get token() {
+  get token(): string {
     return this.cookie.get('mf_accessToken');
   }
 
   login(
-    email: string, 
+    email: string,
     password: string
   ) {
 
@@ -76,13 +78,13 @@ export class SessionLoginService {
 
   logout() {
 
-    return new Observable<boolean>((observer) => {
-      this.httpClient.delete(environment.API_URL + this.LOGOUT_URL, { withCredentials: true })
+    return new Observable<any>((observer) => {
+      this.httpClient.get(environment.API_URL + this.LOGOUT_URL, { withCredentials: true })
       .subscribe(result => {
-        observer.next(true);
+        observer.next(result);
         observer.complete();
       }, err => {
-        observer.next(false);
+        observer.next(err);
         observer.complete();
       })
     })
@@ -106,6 +108,41 @@ export class SessionLoginService {
         observer.complete();
       })
 
+    })
+
+  }
+
+  resetPassword(resetLink: String, newPass: String) {
+
+    const resetData = {
+      reset: resetLink,
+      newPass: newPass
+    }
+
+    return new Observable<boolean>((observer) => {
+      this.httpClient.put(environment.API_URL + this.RESET_URL, resetData, { withCredentials: true })
+      .subscribe(result => {
+        observer.next(true);
+        observer.complete();
+      }, err => {
+        observer.next(false);
+        observer.complete();
+      });
+    })
+
+  }
+
+  verifyToken() {
+
+    return new Observable<boolean>((observer) => {
+      this.httpClient.get(environment.API_URL + this.VERIFY_TOKEN_URL, { withCredentials: true })
+      .subscribe(result => {
+        observer.next(true);
+        observer.complete();
+      }, err => {
+        observer.next(false);
+        observer.complete();
+      })
     })
 
   }

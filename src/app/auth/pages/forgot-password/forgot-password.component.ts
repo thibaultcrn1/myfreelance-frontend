@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastService } from 'angular-toastify';
-import { forgotPassword } from 'src/utils/api';
+import { SessionLoginService } from 'src/app/services/session-login/session-login.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -9,7 +10,7 @@ import { forgotPassword } from 'src/utils/api';
 })
 export class ForgotPasswordComponent implements OnInit {
 
-  constructor(private _toastService: ToastService) { }
+  constructor(private _toastService: ToastService, private sessionLogin: SessionLoginService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -20,13 +21,12 @@ export class ForgotPasswordComponent implements OnInit {
 
     if(!email) return this._toastService.warn("Vous n'avez pas mentionné d'adresse email.");
 
-    forgotPassword(email)
-    .then(() => {
-      return this._toastService.success('Un email de réinitialisation vous as été envoyé.');
-    })
-    .catch((err) => { 
-      console.log(err);
-      return this._toastService.error("Cette adresse mail n'existe pas.");
+    this.sessionLogin.forgotPassword(email)
+    .subscribe(result => {
+      this._toastService.success('Un email de réinitialisation vous as été envoyé.');
+      return this.router.navigate(['/', 'login']);
+    }, err => {
+      return this._toastService.error('Cette adresse mail n\'existe pas.')
     })
 
   }
