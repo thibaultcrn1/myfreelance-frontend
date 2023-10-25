@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtAuthorizationInterceptorsProvider } from './interceptors/jwt-authorization-interceptors/jwt-authorization-interceptors.service';
 import { CookieService } from 'ngx-cookie-service';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CookieService } from 'ngx-cookie-service';
     DashboardModule,
     RouterModule,
     AngularToastifyModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [
     ToastService, 

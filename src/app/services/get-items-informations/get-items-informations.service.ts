@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 export class GetItemsInformationsService {
 
   STOCK_URL = '/stock/get';
+  CATEGORY_URL = '/category/get';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -28,6 +29,17 @@ export class GetItemsInformationsService {
   }
 
   getCategoryList() {
+    
+    return new Observable<any>((observer) => {
+      this.httpClient.get(environment.API_URL + this.CATEGORY_URL, { withCredentials: true })
+      .subscribe(result => {
+        observer.next(result);
+        observer.complete();
+      }, err => {
+        observer.next(err);
+        observer.complete();
+      })
+    })
 
   }
 

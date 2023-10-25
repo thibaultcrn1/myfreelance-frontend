@@ -14,11 +14,10 @@ export class SessionLoginService {
   isLoggedIn$ = this._isLoggedIn$.asObservable();
 
   LOGIN_URL = "/auth/login";
-  LOGOUT_URL = "/auth/logout";
   REGISTER_URL = "/auth/register";
   FORGOT_URL = "/auth/forgot-password";
   RESET_URL = "/auth/reset-password";
-  VERIFY_TOKEN_URL = "/api/auth/verifyToken";
+  VERIFY_TOKEN_URL = "/auth/verifyToken";
 
   constructor(private httpClient: HttpClient, private cookie: CookieService, private router: Router) { }
 
@@ -38,21 +37,21 @@ export class SessionLoginService {
 
     return new Observable<boolean>((observer) => {
       this.httpClient.post(environment.API_URL + this.LOGIN_URL, loginData, { withCredentials: true })
-      .subscribe(result => {
-        observer.next(true);
-        observer.complete();
-      }, err => {
-        observer.next(false);
-        observer.complete();
-      });
+        .subscribe(result => {
+          observer.next(true);
+          observer.complete();
+        }, err => {
+          observer.next(false);
+          observer.complete();
+        });
     })
 
   }
 
   register(
-    firstname: String, 
-    lastname: String, 
-    email: String, 
+    firstname: String,
+    lastname: String,
+    email: String,
     password: String
   ) {
 
@@ -65,33 +64,18 @@ export class SessionLoginService {
 
     return new Observable<boolean>((observer) => {
       this.httpClient.post(environment.API_URL + this.REGISTER_URL, registerData)
-      .subscribe(result => {
-        observer.next(true);
-        observer.complete();
-      }, err => {
-        observer.next(false);
-        observer.complete();
-      })
+        .subscribe(result => {
+          observer.next(true);
+          observer.complete();
+        }, err => {
+          observer.next(false);
+          observer.complete();
+        })
     })
 
   }
 
-  logout() {
-
-    return new Observable<any>((observer) => {
-      this.httpClient.get(environment.API_URL + this.LOGOUT_URL, { withCredentials: true })
-      .subscribe(result => {
-        observer.next(result);
-        observer.complete();
-      }, err => {
-        observer.next(err);
-        observer.complete();
-      })
-    })
-
-  }
-
-  forgotPassword( email: String ) {
+  forgotPassword(email: String) {
 
     const forgotData = {
       email: email
@@ -100,13 +84,13 @@ export class SessionLoginService {
     return new Observable<boolean>((observer) => {
 
       this.httpClient.put(environment.API_URL + this.FORGOT_URL, forgotData)
-      .subscribe(result => {
-        observer.next(true);
-        observer.complete();
-      }, err => {
-        observer.next(false);
-        observer.complete();
-      })
+        .subscribe(result => {
+          observer.next(true);
+          observer.complete();
+        }, err => {
+          observer.next(false);
+          observer.complete();
+        })
 
     })
 
@@ -121,13 +105,13 @@ export class SessionLoginService {
 
     return new Observable<boolean>((observer) => {
       this.httpClient.put(environment.API_URL + this.RESET_URL, resetData, { withCredentials: true })
-      .subscribe(result => {
-        observer.next(true);
-        observer.complete();
-      }, err => {
-        observer.next(false);
-        observer.complete();
-      });
+        .subscribe(result => {
+          observer.next(true);
+          observer.complete();
+        }, err => {
+          observer.next(false);
+          observer.complete();
+        });
     })
 
   }
@@ -136,16 +120,16 @@ export class SessionLoginService {
 
     return new Observable<boolean>((observer) => {
       this.httpClient.get(environment.API_URL + this.VERIFY_TOKEN_URL, { withCredentials: true })
-      .subscribe(result => {
-        observer.next(true);
-        observer.complete();
-      }, err => {
-        observer.next(false);
-        observer.complete();
-      })
+        .subscribe(result => {
+          observer.next(true);
+          observer.complete();
+        }, err => {
+          observer.next(false);
+          observer.complete();
+        })
     })
 
   }
 
-  
+
 }

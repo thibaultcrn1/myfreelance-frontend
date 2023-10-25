@@ -49,20 +49,13 @@
             </thead>
             <tbody>
               
-              
-
-              <tr>
-                <th>2</th>
-                <td><a href="https://en.wikipedia.org/wiki/Leicester_City_F.C." title="Leicester City F.C.">Carte mère</a></td>
-                <td><input type="checkbox"></td>
-                <td>1298283083</td>
+              <tr *ngFor="let category as categorys">
+                <th>{{category?.order}}</th>
+                <td><a href="https://en.wikipedia.org/wiki/Leicester_City_F.C." title="Leicester City F.C.">{{category?.name}}</a></td>
+                <td><input type="checkbox" activate></td>
+                <td>{{category?.id}}</td>
               </tr>
-              <tr>
-                <th>3</th>
-                <td><a href="https://en.wikipedia.org/wiki/Leicester_City_F.C." title="Leicester City F.C.">Carte mère</a></td>
-                <td><input type="checkbox"></td>
-                <td>1298283083</td>
-              </tr>
+            
             </tbody>
           </table>
         

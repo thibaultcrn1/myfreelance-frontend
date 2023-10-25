@@ -9,10 +9,10 @@ import { SessionLoginService } from '../../services/session-login/session-login.
 export class JwtAuthorizationInterceptorsService {
 
   constructor(private sessionLogin: SessionLoginService) { }
-  intercept(req: HttpRequest<any>, next:HttpHandler): Observable<HttpEvent<any>> {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     let token = this.sessionLogin.token;
-    
+
     let jwtToken = req.clone({
 
       setHeaders: {

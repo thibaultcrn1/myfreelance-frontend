@@ -1,7 +1,10 @@
 <header class="header">
     <ul class="header-menu">
-        <li><p class="header-user">Bonjour <strong>{{ username }}</strong></p></li>
-        <li><button (click)="logoutUser()" class="button-header"><i class="fa-solid fa-arrow-right-from-bracket"></i></button></li>
+        <li>
+            <p class="header-user">Bonjour <strong>{{ username }}</strong></p>
+        </li>
+        <li><button (click)="logoutUser()" class="button-header"><i
+                    class="fa-solid fa-arrow-right-from-bracket"></i></button></li>
     </ul>
 </header>
 
@@ -9,8 +12,8 @@
     <img src="../../../../assets/images/icon.png" alt="logo" class="sidebar-logo">
     <ul class="sidebar-menu">
         <li><a [routerLink]="['/dashboard']"><i class="fa-solid fa-house-chimney"></i></a></li>
-        <li><a [routerLink]="['/dashboard/checkout']" ><i class="fa-solid fa-credit-card"></i></a></li>
-        <li><a [routerLink]="['/dashboard/invoice']" ><i class="fa-solid fa-copy"></i></a></li>
+        <li><a [routerLink]="['/dashboard/checkout']"><i class="fa-solid fa-credit-card"></i></a></li>
+        <li><a [routerLink]="['/dashboard/invoice']"><i class="fa-solid fa-copy"></i></a></li>
         <li><a [routerLink]="['/dashboard/client']"><i class="fa-solid fa-user"></i></a></li>
         <li><a [routerLink]="['/dashboard/staff']"><i class="fa-solid fa-users"></i></a></li>
         <li><a [routerLink]="['/dashboard/calendar']"><i class="fa-solid fa-clock"></i></a></li>

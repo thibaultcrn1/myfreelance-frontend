@@ -71,21 +71,21 @@
                 <div class="field">
                     <label class="label">Nom</label>
                     <div class="control">
-                        <input class="input" type="text" value="Doe" placeholder="Doe">
+                        <input class="input" type="text" value="Doe" placeholder={{this.lastname}}>
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="label">Prénom</label>
                     <div class="control">
-                        <input class="input" type="text" value="John" placeholder="John">
+                        <input class="input" type="text" value="John" placeholder={{this.firstname}}>
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="label">Adresse mail</label>
                     <div class="control">
-                        <input class="input" type="email" value="doe.john@gmail.com" placeholder="doe.john@gmail.com">
+                        <input class="input" type="email" value="doe.john@gmail.com" placeholder={{this.email}}>
                     </div>
                 </div>
 
@@ -168,8 +168,8 @@
                                 </figure>
                             </div>
                             <div class="media-content">
-                                <p class="title is-4">Thibault Carron</p>
-                                <p class="subtitle is-6">tcarron6@outlook.com</p>
+                                <p class="title is-4">{{this.firstname}} {{this.lastname}}</p>
+                                <p class="subtitle is-6">{{this.email}}</p>
                             </div>
                         </div>
 
@@ -181,35 +181,35 @@
                 <div class="field">
                     <label class="label">Nom</label>
                     <div class="control">
-                        <input class="input" type="text" placeholder="Doe" disabled>
+                        <input class="input" type="text" placeholder={{this.lastname}} disabled>
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="label">Prénom</label>
                     <div class="control">
-                        <input class="input" type="text" placeholder="John" disabled>
+                        <input class="input" type="text" placeholder={{this.firstname}} disabled>
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="label">Email</label>
                     <div class="control">
-                        <input class="input" type="mail" placeholder="johndoe@myfreelance.com" disabled>
+                        <input class="input" type="mail" placeholder={{this.email}} disabled>
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="label">Date de création</label>
                     <div class="control">
-                        <input class="input" type="text" placeholder="31/12/2022" disabled>
+                        <input class="input" type="text" placeholder={{this.creationDate}} disabled>
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="label">N° de client</label>
                     <div class="control">
-                        <input class="input" type="text" placeholder="e6b47b5f-d1ed-489f-a0db-b16a29181c45" disabled>
+                        <input class="input" type="text" placeholder={{this.id}} disabled>
                     </div>
                 </div>
             </div>

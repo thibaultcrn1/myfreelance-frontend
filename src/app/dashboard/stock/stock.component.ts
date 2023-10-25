@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-import { getCategoryList } from '../../../utils/api';
+import { Router } from '@angular/router';
+import { GetItemsInformationsService } from 'src/app/services/get-items-informations/get-items-informations.service';
 
 @Component({
   selector: 'app-stock',
@@ -9,16 +9,28 @@ import { getCategoryList } from '../../../utils/api';
 })
 export class StockComponent implements OnInit {
   
-  constructor() { }
+  categorys!: any;
+  stocks!: any;
+
+  constructor(private getItems: GetItemsInformationsService, private router: Router) { }
 
   ngOnInit(): void {
 
-    getCategoryList().then((result) => {
-      result.data.categorys.map((item: any) => {
-        console.log(item);
-      })
-    });
+    this.getItems.getCategoryList()
+    .subscribe(result => {
+      console.log(result);
+      this.categorys = result;
+    }, err => {
+      console.log(err);
+    })
 
+    this.getItems.getStockList()
+    .subscribe(result => {
+      console.log(result);
+      this.stocks = result;
+    }, err => {
+      console.log(err);
+    })  
 
   }
 
